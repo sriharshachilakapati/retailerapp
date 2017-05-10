@@ -1,0 +1,18 @@
+<p>Add new product to catalogue? <a href="#insert">Click Here</a></p>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr ng-repeat="product in products">
+        <td>{{ product.id }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.price }}</td>
+        <td><input type="button" value="Edit" ng-click="edit(product.id)"/></td>
+        <td><input type="button" value="Delete" ng-click="delete(product.id)"/></td>
+    </tr>
+</table>
