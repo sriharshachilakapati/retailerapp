@@ -3,6 +3,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 
+const insertAPI = require('./apis/insert');
+
 // Connect to the database
 mongoose.connect('mongodb://localhost:27017/retailerapp', mongooseError =>
 {
@@ -15,6 +17,9 @@ mongoose.connect('mongodb://localhost:27017/retailerapp', mongooseError =>
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ "extended": true }));
     app.use(express.static(path.join(__dirname, "public")));
+
+    // Define the APIS in the server
+    app.use('/insert', insertAPI);
 
     // Start the server
     app.listen(8080, expressErr =>
