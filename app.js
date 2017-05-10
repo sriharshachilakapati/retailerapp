@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 
 const insertAPI = require('./apis/insert');
+const removeAPI = require('./apis/remove');
 
 // Connect to the database
 mongoose.connect('mongodb://localhost:27017/retailerapp', mongooseError =>
@@ -20,6 +21,7 @@ mongoose.connect('mongodb://localhost:27017/retailerapp', mongooseError =>
 
     // Define the APIS in the server
     app.use('/insert', insertAPI);
+    app.use('/remove', removeAPI);
 
     // Start the server
     app.listen(8080, expressErr =>
