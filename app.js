@@ -6,6 +6,7 @@ const path = require('path');
 const insertAPI = require('./apis/insert');
 const removeAPI = require('./apis/remove');
 const updateAPI = require('./apis/update');
+const findAPI = require('./apis/find');
 
 // Connect to the database
 mongoose.connect('mongodb://localhost:27017/retailerapp', mongooseError =>
@@ -24,6 +25,7 @@ mongoose.connect('mongodb://localhost:27017/retailerapp', mongooseError =>
     app.use('/insert', insertAPI);
     app.use('/remove', removeAPI);
     app.use('/update', updateAPI);
+    app.use('/find', findAPI);
 
     // Start the server
     app.listen(8080, expressErr =>
